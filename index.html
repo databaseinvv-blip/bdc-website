@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<!--
+  ================================================================
+  BDC WEBSITE - IMAGE REPLACEMENT GUIDE
+  ================================================================
+
+  This file is built so you can replace placeholder graphics with real
+  photos easily. There are FOUR places that currently use placeholder
+  SVG illustrations or initials:
+
+    A) HERO BACKGROUND  (search the file for the text: HERO IMAGE)
+    B) SECTOR CARDS x4  (search the file for the text: SECTOR IMAGE)
+    C) TEAM PORTRAITS x6 (search the file for the text: TEAM PHOTO)
+    D) INSIGHTS IMAGES x3 (search the file for the text: INSIGHT IMAGE)
+
+  HOW TO SWAP IN A REAL IMAGE:
+
+  Step 1: Get your image file (.jpg or .png).
+          Recommended sizes:
+            Hero:     1920x1000 pixels (very wide)
+            Sector:   800x1000 pixels (portrait)
+            Team:     800x800 pixels (square)
+            Insights: 800x500 pixels (wide rectangle)
+
+  Step 2: In GitHub, create a folder called "images" in your repo
+          (Add file > Create new file > type "images/placeholder.txt"
+          then commit). Upload your photos into this folder.
+
+  Step 3: Find the marker comment in this file (e.g. HERO IMAGE)
+          Each marker comment includes the exact line of code to paste.
+
+  Step 4: Commit the change in GitHub. Cloudflare auto-deploys in ~1 min.
+
+  TIP: Always keep a backup of this file before editing.
+  ================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Borneo Development Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #0E3A2F;
+    --green-deep: #082420;
+    --green-darker: #051612;
+    --gold: #B08A3D;
+    --gold-bright: #C9A24A;
+    --white: #FFFFFF;
+    --off-white: #FAFAF8;
+    --gray-50: #F5F5F2;
+    --gray-100: #EDEDE8;
+    --gray-200: #DCDCD5;
+    --gray-300: #B8B8B0;
+    --gray-500: #6E6E66;
+    --gray-700: #3A3A35;
+    --black: #0A0A08;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    color: var(--black);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* TYPOGRAPHY ============================================== */
+  h1, h2, h3, h4, h5 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    line-height: 1.1;
+  }
+
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+
+  /* NAVIGATION ============================================== */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+  .nav.scrolled {
+    background: rgba(8, 36, 32, 0.96);
+    backdrop-filter: blur(12px);
+    padding: 1.125rem 2.5rem;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--white);
+  }
+  .nav-logo .mark {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold-bright);
+    letter-spacing: 0.02em;
+  }
+  .nav-logo .word {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+  }
+  .nav-menu {
+    display: flex;
+    gap: 2.25rem;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-menu a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    letter-spacing: -0.005em;
+  }
+  .nav-menu a:hover { color: var(--gold-bright); }
+  .nav-cta {
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0.625rem 1.25rem;
+    background: rgba(201, 162, 74, 0.15);
+    border: 1px solid rgba(201, 162, 74, 0.4);
+    transition: all 0.2s;
+  }
+  .nav-cta:hover {
+    background: var(--gold-bright);
+    color: var(--green-deep);
+    border-color: var(--gold-bright);
+  }
+
+  /* HERO ===================================================== */
+  .hero {
+    min-height: 92vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 2.5rem 5rem;
+    color: var(--white);
+    overflow: hidden;
+    background: var(--green-darker);
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-bg svg,
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(5, 22, 18, 0.55) 0%, rgba(5, 22, 18, 0.7) 40%, rgba(5, 22, 18, 0.95) 100%),
+      linear-gradient(90deg, rgba(5, 22, 18, 0.6) 0%, rgba(5, 22, 18, 0.2) 50%, rgba(5, 22, 18, 0.4) 100%);
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gold-bright);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gold-bright);
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 5.25rem);
+    line-height: 1.05;
+    font-weight: 500;
+    color: var(--white);
+    max-width: 18ch;
+    margin-bottom: 0;
+    letter-spacing: -0.025em;
+  }
+  .hero-meta {
+    position: absolute;
+    bottom: 2rem;
+    left: 2.5rem;
+    right: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 1320px;
+    margin: 0 auto;
+    font-weight: 500;
+  }
+
+  /* STATS BAND ============================================== */
+  .stats {
+    background: var(--green-deep);
+    color: var(--white);
+    padding: 0;
+    border-bottom: 1px solid rgba(201, 162, 74, 0.15);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+  .stat {
+    padding: 3rem 2.5rem;
+    border-right: 1px solid rgba(201, 162, 74, 0.15);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-size: clamp(2.5rem, 4vw, 3.75rem);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.625rem;
+    letter-spacing: -0.035em;
+  }
+  .stat-num .small {
+    font-size: 0.5em;
+    color: var(--gold-bright);
+    font-weight: 500;
+    margin-left: 0.125em;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  /* SECTIONS ================================================ */
+  section { padding: 7rem 0; }
+
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  .section-eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* ABOUT =================================================== */
+  .about {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-grid h2 {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: var(--black);
+  }
+  .about-content p {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--gray-700);
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+  }
+  .about-content p:first-child {
+    color: var(--black);
+    font-size: 22px;
+    line-height: 1.45;
+    font-weight: 500;
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.015em;
+  }
+  .about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--black);
+    margin-top: 1rem;
+    transition: gap 0.25s, color 0.25s, border-color 0.25s;
+  }
+  .about-link:hover {
+    gap: 1rem;
+    color: var(--green);
+    border-color: var(--green);
+  }
+
+  /* APPROACH ================================================ */
+  .approach {
+    background: var(--off-white);
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .approach-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 5rem;
+    align-items: end;
+  }
+  .approach-header h2 {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+  .approach-header .lede {
+    font-size: 18px;
+    color: var(--gray-700);
+    line-height: 1.65;
+    max-width: 50ch;
+  }
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .approach-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border: 1px solid var(--gray-100);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    min-height: 360px;
+  }
+  .approach-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 24px 48px -24px rgba(14, 58, 47, 0.12);
+  }
+  .approach-card .num {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 2rem;
+  }
+  .approach-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+  .approach-card .tagline {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+  .approach-card p {
+    font-size: 15px;
+    color: var(--gray-700);
+    line-height: 1.6;
+    margin-top: auto;
+  }
+
+  /* SECTORS ================================================= */
+  .sectors {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .sectors-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+  .sectors-header h2 {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+  .sectors-header .lede {
+    font-size: 18px;
+    color: var(--gray-700);
+    line-height: 1.65;
+    max-width: 50ch;
+  }
+  .sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .sector-card {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--green-deep);
+    color: var(--white);
+  }
+  .sector-card svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+  }
+  .sector-card:hover svg {
+    transform: scale(1.04);
+  }
+  .sector-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8, 36, 32, 0) 40%, rgba(5, 22, 18, 0.95) 100%);
+    z-index: 1;
+    transition: background 0.3s;
+  }
+  .sector-card:hover::before {
+    background: linear-gradient(180deg, rgba(8, 36, 32, 0.1) 30%, rgba(5, 22, 18, 0.95) 100%);
+  }
+  .sector-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    z-index: 2;
+  }
+  .sector-card .num {
+    font-size: 12px;
+    color: var(--gold-bright);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .sector-card h3 {
+    font-size: 22px;
+    color: var(--white);
+    margin-bottom: 0.625rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  .sector-card p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.5;
+  }
+
+  /* FEATURED THESIS ========================================= */
+  .feature {
+    background: var(--green-deep);
+    color: var(--white);
+    border-bottom: 1px solid rgba(201, 162, 74, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .feature-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(201, 162, 74, 0.1) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 10% 80%, rgba(14, 58, 47, 0.5) 0%, transparent 60%);
+  }
+  .feature .container {
+    position: relative;
+    z-index: 1;
+  }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .feature h2 {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.75rem;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+  .feature .lede {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.65;
+    margin-bottom: 2rem;
+  }
+  .feature .body {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.65;
+    margin-bottom: 2.5rem;
+  }
+  .feature-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    color: var(--gold-bright);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--gold-bright);
+    transition: gap 0.25s;
+  }
+  .feature-link:hover { gap: 1rem; }
+  .feature-image {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--green-darker);
+  }
+
+  /* TEAM ===================================================== */
+  .team {
+    background: var(--off-white);
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .team-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    align-items: end;
+  }
+  .team-header h2 {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+  .team-header .lede {
+    font-size: 18px;
+    color: var(--gray-700);
+    line-height: 1.65;
+    max-width: 50ch;
+  }
+  .team-tier {
+    margin-bottom: 4rem;
+  }
+  .team-tier:last-child { margin-bottom: 0; }
+  .tier-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--black);
+  }
+  .tier-label h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--black);
+    letter-spacing: -0.005em;
+  }
+  .tier-label .count {
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
+  .team-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .team-grid.advisors { grid-template-columns: repeat(2, 1fr); }
+  .team-grid.partners { grid-template-columns: repeat(4, 1fr); }
+  .person {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .person:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+  .person-photo {
+    aspect-ratio: 1;
+    background: var(--green-darker);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .team-grid.advisors .person-photo {
+    aspect-ratio: 4/3;
+  }
+  .person-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(201, 162, 74, 0.12) 0%, transparent 50%),
+      linear-gradient(135deg, #1a4a3d 0%, #051612 100%);
+    z-index: 1;
+  }
+  .person-initials {
+    position: relative;
+    z-index: 2;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 48px;
+    color: rgba(201, 162, 74, 0.55);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .person-info {
+    padding: 1.5rem;
+  }
+  .person-info h4 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+  }
+  .person-info .role {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  /* INSIGHTS / NEWS ========================================= */
+  .insights {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .insights-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 3.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--black);
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .insights-header h2 {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+  .view-all {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--black);
+    padding: 0.875rem 1.5rem;
+    border: 1px solid var(--black);
+    transition: all 0.2s;
+  }
+  .view-all:hover {
+    background: var(--black);
+    color: var(--white);
+  }
+  .insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .insight-card {
+    cursor: pointer;
+    transition: opacity 0.25s;
+  }
+  .insight-card:hover { opacity: 0.85; }
+  .insight-image {
+    aspect-ratio: 16/10;
+    background: var(--green-darker);
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .insight-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
+  .insight-meta .dot {
+    width: 3px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .insight-meta .tag {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .insight-card h3 {
+    font-size: 19px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 0.875rem;
+    letter-spacing: -0.015em;
+  }
+  .insight-card p {
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+  }
+
+  /* CTA ===================================================== */
+  .cta {
+    background: var(--black);
+    color: var(--white);
+    padding: 6rem 0;
+    border-bottom: 1px solid var(--gray-700);
+  }
+  .cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .cta h2 {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: var(--white);
+    max-width: 18ch;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 1rem 1.75rem;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid var(--white);
+    color: var(--white);
+    background: transparent;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background: var(--white);
+    color: var(--black);
+  }
+  .btn.primary {
+    background: var(--gold-bright);
+    border-color: var(--gold-bright);
+    color: var(--green-darker);
+  }
+  .btn.primary:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--white);
+  }
+
+  /* FOOTER ================================================== */
+  .footer {
+    background: var(--green-darker);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 5rem 0 2rem;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .footer-brand .mark {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--gold-bright);
+    margin-bottom: 0.5rem;
+    display: block;
+    letter-spacing: 0.02em;
+  }
+  .footer-brand .word {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+    display: block;
+    font-weight: 500;
+  }
+  .footer-brand p {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+    max-width: 36ch;
+  }
+  .footer-brand .reg {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .footer h5 {
+    font-size: 12px;
+    color: var(--gold-bright);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .footer ul { list-style: none; }
+  .footer li {
+    padding: 0.4rem 0;
+    font-size: 14px;
+  }
+  .footer a {
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.2s;
+  }
+  .footer a:hover { color: var(--gold-bright); }
+  .footer address {
+    font-style: normal;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .footer-bottom {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .footer-bottom-links {
+    display: flex;
+    gap: 1.75rem;
+  }
+
+  /* PORTFOLIO =============================================== */
+  .portfolio {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .portfolio-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+  .portfolio-header h2 {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+  .portfolio-header .lede {
+    font-size: 18px;
+    color: var(--gray-700);
+    line-height: 1.65;
+    max-width: 50ch;
+  }
+  .portfolio-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.5rem 1rem;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    font-size: 12px;
+    color: var(--gray-700);
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+  }
+  .portfolio-status .pulse {
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: relative;
+  }
+  .portfolio-status .pulse::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    opacity: 0.4;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.4; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .portfolio-card {
+    border: 1px solid var(--gray-100);
+    background: var(--off-white);
+    aspect-ratio: 4/5;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .portfolio-card.placeholder {
+    background: var(--off-white);
+    cursor: default;
+  }
+  .portfolio-card.placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(45deg, transparent 48%, var(--gray-100) 49%, var(--gray-100) 51%, transparent 52%);
+    background-size: 14px 14px;
+    opacity: 0.5;
+  }
+  .portfolio-card-content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .portfolio-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+  .portfolio-card .num {
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+  .portfolio-card .status-tag {
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 600;
+    padding: 0.25rem 0.625rem;
+    background: rgba(176, 138, 61, 0.1);
+    border: 1px solid rgba(176, 138, 61, 0.25);
+  }
+  .portfolio-card-middle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem 0;
+  }
+  .portfolio-card-middle .coming-soon {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--gray-300);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+  }
+  .portfolio-card-middle .sub {
+    font-size: 13px;
+    color: var(--gray-500);
+    font-weight: 500;
+    max-width: 22ch;
+    line-height: 1.5;
+  }
+  .portfolio-card-bottom {
+    border-top: 1px solid var(--gray-200);
+    padding-top: 1.25rem;
+    text-align: center;
+  }
+  .portfolio-card-bottom .meta {
+    font-size: 11px;
+    color: var(--gray-500);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .portfolio-note {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--gray-100);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .portfolio-note p {
+    font-size: 16px;
+    color: var(--gray-700);
+    line-height: 1.6;
+  }
+  .portfolio-note p strong {
+    color: var(--black);
+    font-weight: 600;
+  }
+  .portfolio-note-cta {
+    text-align: right;
+  }
+  .portfolio-note-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--black);
+    transition: gap 0.25s, color 0.25s, border-color 0.25s;
+  }
+  .portfolio-note-cta a:hover {
+    gap: 1rem;
+    color: var(--green);
+    border-color: var(--green);
+  }
+
+  /* CAREERS ================================================== */
+  .careers {
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .careers-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+  .careers-header h2 {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+  .careers-header .lede {
+    font-size: 18px;
+    color: var(--gray-700);
+    line-height: 1.65;
+    max-width: 50ch;
+  }
+  .careers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .career-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+    cursor: pointer;
+    min-height: 320px;
+  }
+  .career-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 24px 48px -24px rgba(14, 58, 47, 0.12);
+  }
+  .career-card .role-id {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    letter-spacing: 0;
+  }
+  .career-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+  .career-card p {
+    font-size: 15px;
+    color: var(--gray-700);
+    line-height: 1.6;
+    margin-bottom: auto;
+  }
+  .career-card .apply {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--gray-100);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    color: var(--black);
+    font-size: 13px;
+    font-weight: 600;
+    transition: gap 0.25s, color 0.25s;
+  }
+  .career-card:hover .apply {
+    gap: 1rem;
+    color: var(--green);
+  }
+  .careers-footer {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--gray-200);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .careers-footer p {
+    font-size: 15px;
+    color: var(--gray-700);
+    line-height: 1.6;
+  }
+  .careers-footer p strong {
+    color: var(--black);
+    font-weight: 600;
+  }
+  .careers-footer .contact {
+    text-align: right;
+  }
+  .careers-footer .contact a {
+    color: var(--black);
+    font-weight: 600;
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 2px;
+  }
+
+  /* CONTACT ================================================== */
+  .contact {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .contact-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+  .contact-header h2 {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+  .contact-header .lede {
+    font-size: 18px;
+    color: var(--gray-700);
+    line-height: 1.65;
+    max-width: 50ch;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 3rem;
+    align-items: stretch;
+  }
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--gray-100);
+  }
+  .contact-info-block {
+    padding: 2rem 2.25rem;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .contact-info-block:last-child {
+    border-bottom: none;
+  }
+  .contact-info-block .label {
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.875rem;
+  }
+  .contact-info-block .value {
+    font-size: 17px;
+    color: var(--black);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.015em;
+  }
+  .contact-info-block .value.address {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--gray-700);
+    line-height: 1.55;
+  }
+  .contact-info-block .value a {
+    color: var(--black);
+    border-bottom: 1px solid var(--gray-200);
+    transition: border-color 0.2s;
+  }
+  .contact-info-block .value a:hover {
+    border-bottom-color: var(--gold);
+    color: var(--green);
+  }
+  .contact-info-block .sub {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+  .contact-info-block .maps-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 500;
+    margin-top: 0.75rem;
+    border-bottom: 1px solid var(--gray-200);
+    padding-bottom: 2px;
+    transition: all 0.2s;
+  }
+  .contact-info-block .maps-link:hover {
+    color: var(--green);
+    border-bottom-color: var(--gold);
+  }
+  .contact-map {
+    border: 1px solid var(--gray-100);
+    overflow: hidden;
+    min-height: 480px;
+    position: relative;
+    background: var(--gray-50);
+  }
+  .contact-map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+
+  /* RESPONSIVE ============================================== */
+  @media (max-width: 1024px) {
+    .nav { padding: 1rem 1.5rem; }
+    .nav.scrolled { padding: 0.875rem 1.5rem; }
+    .nav-menu { display: none; }
+    .nav-logo .word { display: none; }
+    .container { padding: 0 1.5rem; }
+    section { padding: 4.5rem 0; }
+    .hero { padding: 0 1.5rem 4rem; }
+    .hero-meta { left: 1.5rem; right: 1.5rem; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2) { border-right: none; }
+    .stat { border-bottom: 1px solid rgba(201, 162, 74, 0.15); padding: 2rem; }
+    .about-grid,
+    .approach-header,
+    .sectors-header,
+    .feature-grid,
+    .team-header,
+    .cta-grid,
+    .portfolio-header,
+    .portfolio-note,
+    .careers-header,
+    .careers-footer,
+    .contact-header,
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .approach-grid,
+    .sectors-grid,
+    .insights-grid,
+    .portfolio-grid,
+    .careers-grid {
+      grid-template-columns: 1fr;
+    }
+    .team-grid.partners { grid-template-columns: repeat(2, 1fr); }
+    .cta-actions { justify-content: flex-start; }
+    .portfolio-note-cta,
+    .careers-footer .contact { text-align: left; }
+    .contact-map { min-height: 360px; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    .stat:nth-child(odd) { border-right: none; }
+    .team-grid.advisors,
+    .team-grid.partners { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">
+    <span class="mark">BDC</span>
+    <span class="word">Borneo Development Capital</span>
+  </a>
+  <ul class="nav-menu">
+    <li><a href="#about">About</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#sectors">Sectors</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#insights">Insights</a></li>
+    <li><a href="#careers">Careers</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <!-- HERO IMAGE - Photo by Gem Lyn on Unsplash. To replace, upload a new photo to images/ folder and change the src below. -->
+    <img src="images/hero-sarawak.jpg" alt="Sarawak hydropower facility - the foundation of the state's renewable energy advantage">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">A Sarawak-focused private equity firm</div>
+    <h1>Long-term capital for Sarawak's development decade.</h1>
+  </div>
+  <div class="hero-meta">
+    <div>Borneo Development Capital &middot; Established 2025</div>
+    <div>Kuala Lumpur, Malaysia</div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-num">RM100M</div>
+      <div class="stat-label">Target Fund Size</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">8<span class="small">% p.a.</span></div>
+      <div class="stat-label">Target Return</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3 + 3</div>
+      <div class="stat-label">Year Tenure</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">SC<span class="small"> Regulated</span></div>
+      <div class="stat-label">Securities Commission Malaysia</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-eyebrow">About BDC</div>
+        <h2>A homegrown firm built for Sarawak's next chapter.</h2>
+      </div>
+      <div class="about-content">
+        <p>Borneo Development Capital is a Malaysia-based private equity firm focused exclusively on the long-term development of Sarawak. We deploy patient capital across infrastructure, public-market equity, and high-growth digital sectors aligned with the state's 2030 development agenda.</p>
+        <p>Our team combines institutional capital markets experience from Hong Kong and Malaysia with deep, on-the-ground operational knowledge of Sarawak. We invest with one conviction: that the next decade of Borneo's growth deserves capital that understands the place.</p>
+        <a href="#approach" class="about-link">
+          Our Approach
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="container">
+    <div class="approach-header">
+      <div>
+        <div class="section-eyebrow">Investment Approach</div>
+        <h2>Three strategies, balanced across the risk-return spectrum.</h2>
+      </div>
+      <div class="lede">
+        We construct portfolios that pair the stability of contractual cashflow with the upside of structured equity and high-growth opportunities - designed for capital preservation first, returns second.
+      </div>
+    </div>
+
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="num">01 - Core Yield</div>
+        <h3>Government &amp; Infrastructure Financing</h3>
+        <div class="tagline">Defensive &middot; Contractual cashflow</div>
+        <p>Yield-focused investments alongside state and government-linked project contracts, providing predictable income and strong downside protection.</p>
+      </div>
+      <div class="approach-card">
+        <div class="num">02 - Structured Equity</div>
+        <h3>Listed Company Participation</h3>
+        <div class="tagline">Balanced &middot; Yield with upside</div>
+        <p>Selective participation in public-market opportunities including IPO and pre-IPO situations, with risk mitigation and disciplined position-sizing built into each transaction.</p>
+      </div>
+      <div class="approach-card">
+        <div class="num">03 - Future Economy</div>
+        <h3>High-Growth &amp; Digital Infrastructure</h3>
+        <div class="tagline">Growth &middot; Strategic alignment</div>
+        <p>Selective exposure to scalable platforms in digital infrastructure, data centres, and the future-economy sectors aligned with Sarawak's long-term agenda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section class="sectors" id="sectors">
+  <div class="container">
+    <div class="sectors-header">
+      <div>
+        <div class="section-eyebrow">Sectors</div>
+        <h2>Where we deploy capital.</h2>
+      </div>
+      <div class="lede">
+        Our investment focus mirrors the development priorities of the Sarawak Development Strategy 2030 - concentrated on the sectors with the deepest structural tailwinds.
+      </div>
+    </div>
+
+    <div class="sectors-grid">
+      <div class="sector-card">
+        <!-- SECTOR IMAGE 01 (Infrastructure) - swap SVG below with: <img src="images/sector-infrastructure.jpg" alt="Infrastructure" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"> -->
+        <svg viewBox="0 0 400 530" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sec1" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#1a4a3d"/>
+              <stop offset="100%" stop-color="#082420"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="530" fill="url(#sec1)"/>
+          <!-- Bridge silhouette -->
+          <g opacity="0.4">
+            <rect x="0" y="380" width="400" height="100" fill="#020806"/>
+            <path d="M0,380 L60,380 L60,330 L80,310 L100,330 L100,380 L150,380 L150,320 L170,300 L190,320 L190,380 L240,380 L240,330 L260,310 L280,330 L280,380 L330,380 L330,320 L350,300 L370,320 L370,380 L400,380" stroke="#C9A24A" stroke-width="1.5" fill="none" opacity="0.55"/>
+            <line x1="0" y1="380" x2="400" y2="380" stroke="#C9A24A" stroke-width="1.5" opacity="0.5"/>
+            <line x1="0" y1="410" x2="400" y2="410" stroke="#C9A24A" stroke-width="0.5" opacity="0.3"/>
+            <line x1="0" y1="430" x2="400" y2="430" stroke="#C9A24A" stroke-width="0.4" opacity="0.2"/>
+          </g>
+        </svg>
+        <div class="sector-card-content">
+          <div class="num">01</div>
+          <h3>Infrastructure</h3>
+          <p>Roads, bridges, water, and built environment.</p>
+        </div>
+      </div>
+      <div class="sector-card">
+        <!-- SECTOR IMAGE 02 (Renewable Energy) - swap SVG below with: <img src="images/sector-renewable.jpg" alt="Renewable Energy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"> -->
+        <svg viewBox="0 0 400 530" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sec2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#14443a"/>
+              <stop offset="100%" stop-color="#051612"/>
+            </linearGradient>
+            <radialGradient id="sec2-sun" cx="50%" cy="30%" r="35%">
+              <stop offset="0%" stop-color="#C9A24A" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#C9A24A" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="530" fill="url(#sec2)"/>
+          <!-- Sun -->
+          <circle cx="200" cy="170" r="100" fill="url(#sec2-sun)"/>
+          <circle cx="200" cy="170" r="40" fill="none" stroke="#C9A24A" stroke-width="1" opacity="0.55"/>
+          <g opacity="0.45">
+            <line x1="200" y1="80" x2="200" y2="105" stroke="#C9A24A" stroke-width="1.2"/>
+            <line x1="200" y1="235" x2="200" y2="260" stroke="#C9A24A" stroke-width="1.2"/>
+            <line x1="115" y1="170" x2="140" y2="170" stroke="#C9A24A" stroke-width="1.2"/>
+            <line x1="260" y1="170" x2="285" y2="170" stroke="#C9A24A" stroke-width="1.2"/>
+          </g>
+          <!-- Wave lines -->
+          <path d="M0,420 Q100,400 200,420 T400,420" stroke="#C9A24A" stroke-width="1.2" fill="none" opacity="0.5"/>
+          <path d="M0,445 Q100,425 200,445 T400,445" stroke="#C9A24A" stroke-width="0.9" fill="none" opacity="0.4"/>
+          <path d="M0,470 Q100,450 200,470 T400,470" stroke="#C9A24A" stroke-width="0.6" fill="none" opacity="0.3"/>
+        </svg>
+        <div class="sector-card-content">
+          <div class="num">02</div>
+          <h3>Renewable Energy</h3>
+          <p>Hydropower, solar, and energy storage systems.</p>
+        </div>
+      </div>
+      <div class="sector-card">
+        <!-- SECTOR IMAGE 03 (Digital Infrastructure) - swap SVG below with: <img src="images/sector-digital.jpg" alt="Digital Infrastructure" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"> -->
+        <svg viewBox="0 0 400 530" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sec3" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#0E3A2F"/>
+              <stop offset="100%" stop-color="#1a5345"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="530" fill="url(#sec3)"/>
+          <!-- Server rack -->
+          <g opacity="0.5" transform="translate(110, 130)">
+            <rect x="0" y="0" width="180" height="240" fill="none" stroke="#C9A24A" stroke-width="1.2"/>
+            <line x1="0" y1="40" x2="180" y2="40" stroke="#C9A24A" stroke-width="0.6"/>
+            <line x1="0" y1="80" x2="180" y2="80" stroke="#C9A24A" stroke-width="0.6"/>
+            <line x1="0" y1="120" x2="180" y2="120" stroke="#C9A24A" stroke-width="0.6"/>
+            <line x1="0" y1="160" x2="180" y2="160" stroke="#C9A24A" stroke-width="0.6"/>
+            <line x1="0" y1="200" x2="180" y2="200" stroke="#C9A24A" stroke-width="0.6"/>
+            <circle cx="20" cy="20" r="2.5" fill="#C9A24A"/>
+            <circle cx="40" cy="20" r="2.5" fill="#C9A24A" opacity="0.65"/>
+            <circle cx="20" cy="60" r="2.5" fill="#C9A24A" opacity="0.75"/>
+            <circle cx="60" cy="100" r="2.5" fill="#C9A24A"/>
+            <circle cx="40" cy="140" r="2.5" fill="#C9A24A" opacity="0.55"/>
+            <circle cx="80" cy="180" r="2.5" fill="#C9A24A" opacity="0.7"/>
+            <circle cx="20" cy="220" r="2.5" fill="#C9A24A"/>
+            <circle cx="100" cy="60" r="2.5" fill="#C9A24A" opacity="0.6"/>
+            <circle cx="120" cy="140" r="2.5" fill="#C9A24A" opacity="0.7"/>
+            <circle cx="140" cy="20" r="2.5" fill="#C9A24A" opacity="0.55"/>
+            <circle cx="160" cy="100" r="2.5" fill="#C9A24A"/>
+          </g>
+        </svg>
+        <div class="sector-card-content">
+          <div class="num">03</div>
+          <h3>Digital Infrastructure</h3>
+          <p>Data centres, smart city systems, connectivity.</p>
+        </div>
+      </div>
+      <div class="sector-card">
+        <!-- SECTOR IMAGE 04 (Listed Equity) - swap SVG below with: <img src="images/sector-equity.jpg" alt="Listed Equity" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"> -->
+        <svg viewBox="0 0 400 530" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sec4" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#082420"/>
+              <stop offset="100%" stop-color="#14443a"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="530" fill="url(#sec4)"/>
+          <!-- Stock chart -->
+          <g opacity="0.5" transform="translate(60, 170)">
+            <line x1="0" y1="220" x2="280" y2="220" stroke="#C9A24A" stroke-width="0.6"/>
+            <line x1="0" y1="0" x2="0" y2="220" stroke="#C9A24A" stroke-width="0.6"/>
+            <rect x="20" y="130" width="16" height="80" fill="#C9A24A" opacity="0.7"/>
+            <line x1="28" y1="105" x2="28" y2="130" stroke="#C9A24A" stroke-width="1.2"/>
+            <line x1="28" y1="210" x2="28" y2="220" stroke="#C9A24A" stroke-width="1.2"/>
+            <rect x="56" y="85" width="16" height="100" fill="#C9A24A" opacity="0.6"/>
+            <line x1="64" y1="60" x2="64" y2="85" stroke="#C9A24A" stroke-width="1.2"/>
+            <rect x="92" y="60" width="16" height="125" fill="#C9A24A" opacity="0.7"/>
+            <line x1="100" y1="35" x2="100" y2="60" stroke="#C9A24A" stroke-width="1.2"/>
+            <rect x="128" y="105" width="16" height="80" fill="#C9A24A" opacity="0.5"/>
+            <rect x="164" y="40" width="16" height="145" fill="#C9A24A" opacity="0.7"/>
+            <line x1="172" y1="15" x2="172" y2="40" stroke="#C9A24A" stroke-width="1.2"/>
+            <rect x="200" y="20" width="16" height="165" fill="#C9A24A" opacity="0.8"/>
+            <line x1="208" y1="0" x2="208" y2="20" stroke="#C9A24A" stroke-width="1.2"/>
+            <rect x="236" y="50" width="16" height="135" fill="#C9A24A" opacity="0.6"/>
+          </g>
+        </svg>
+        <div class="sector-card-content">
+          <div class="num">04</div>
+          <h3>Listed Equity</h3>
+          <p>Public-market structured opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="portfolio-header">
+      <div>
+        <div class="section-eyebrow">Portfolio</div>
+        <h2>Our investments.</h2>
+      </div>
+      <div class="lede">
+        Our portfolio is currently being constructed. As deals close, this section will showcase BDC's investments across infrastructure, public-market equity, and high-growth sectors in Sarawak.
+      </div>
+    </div>
+
+    <div class="portfolio-status">
+      <span class="pulse"></span>
+      <span>Actively deploying capital &middot; First close in progress</span>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-card placeholder">
+        <div class="portfolio-card-content">
+          <div class="portfolio-card-top">
+            <div class="num">01</div>
+            <div class="status-tag">In Pipeline</div>
+          </div>
+          <div class="portfolio-card-middle">
+            <div class="coming-soon">Coming Soon</div>
+            <div class="sub">Investment details to be announced upon deal closing.</div>
+          </div>
+          <div class="portfolio-card-bottom">
+            <div class="meta">Sector &middot; Year</div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-card placeholder">
+        <div class="portfolio-card-content">
+          <div class="portfolio-card-top">
+            <div class="num">02</div>
+            <div class="status-tag">In Pipeline</div>
+          </div>
+          <div class="portfolio-card-middle">
+            <div class="coming-soon">Coming Soon</div>
+            <div class="sub">Investment details to be announced upon deal closing.</div>
+          </div>
+          <div class="portfolio-card-bottom">
+            <div class="meta">Sector &middot; Year</div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-card placeholder">
+        <div class="portfolio-card-content">
+          <div class="portfolio-card-top">
+            <div class="num">03</div>
+            <div class="status-tag">In Pipeline</div>
+          </div>
+          <div class="portfolio-card-middle">
+            <div class="coming-soon">Coming Soon</div>
+            <div class="sub">Investment details to be announced upon deal closing.</div>
+          </div>
+          <div class="portfolio-card-bottom">
+            <div class="meta">Sector &middot; Year</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-note">
+      <p>
+        <strong>Pipeline under active review.</strong> BDC is currently evaluating opportunities across infrastructure financing, listed-company structured equity, and digital infrastructure platforms in Sarawak. Portfolio additions will be announced as transactions close.
+      </p>
+      <div class="portfolio-note-cta">
+        <a href="#contact">For deal-flow inquiries <span>&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED THESIS -->
+<section class="feature">
+  <div class="feature-bg"></div>
+  <div class="container">
+    <div class="feature-grid">
+      <div>
+        <div class="section-eyebrow" style="color: var(--gold-bright);">The Thesis</div>
+        <h2>From Watt to Byte. Sarawak builds the next economy.</h2>
+        <p class="lede">Abundant clean energy, stable climate, and vast underused land - Sarawak's natural endowment is being converted into the foundation of a digital economy.</p>
+        <p class="body">The state's development blueprint targets a doubling of GDP to RM282 billion by 2030, anchored by renewable generation, data infrastructure, and the structural advantages that few jurisdictions in Southeast Asia possess at scale.</p>
+        <a href="thesis.html" class="feature-link">
+          Read the full thesis
+          <span>→</span>
+        </a>
+      </div>
+      <div class="feature-image">
+        <svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0; width:100%; height:100%;" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="th-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#1a4a3d"/>
+              <stop offset="100%" stop-color="#020806"/>
+            </linearGradient>
+            <linearGradient id="th-glow" x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop offset="0%" stop-color="#C9A24A" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#C9A24A" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="450" fill="url(#th-bg)"/>
+          <ellipse cx="300" cy="100" rx="280" ry="120" fill="url(#th-glow)"/>
+          <!-- Energy waves transitioning to data grid -->
+          <g opacity="0.55">
+            <path d="M40,200 Q90,160 140,200 T240,200 T340,200" stroke="#C9A24A" stroke-width="1.4" fill="none"/>
+            <path d="M40,225 Q90,195 140,225 T240,225 T340,225" stroke="#C9A24A" stroke-width="1.1" fill="none" opacity="0.75"/>
+            <path d="M40,250 Q90,220 140,250 T240,250 T340,250" stroke="#C9A24A" stroke-width="0.8" fill="none" opacity="0.55"/>
+          </g>
+          <!-- Arrow connector -->
+          <g opacity="0.5" transform="translate(340, 220)">
+            <line x1="0" y1="0" x2="80" y2="0" stroke="#C9A24A" stroke-width="1.2" stroke-dasharray="4 4"/>
+            <path d="M76,-6 L82,0 L76,6" stroke="#C9A24A" stroke-width="1.2" fill="none"/>
+          </g>
+          <!-- Grid -->
+          <g opacity="0.55" transform="translate(440, 130)">
+            <rect x="0" y="0" width="130" height="200" fill="none" stroke="#C9A24A" stroke-width="1"/>
+            <line x1="32" y1="0" x2="32" y2="200" stroke="#C9A24A" stroke-width="0.5"/>
+            <line x1="65" y1="0" x2="65" y2="200" stroke="#C9A24A" stroke-width="0.5"/>
+            <line x1="98" y1="0" x2="98" y2="200" stroke="#C9A24A" stroke-width="0.5"/>
+            <line x1="0" y1="40" x2="130" y2="40" stroke="#C9A24A" stroke-width="0.5"/>
+            <line x1="0" y1="80" x2="130" y2="80" stroke="#C9A24A" stroke-width="0.5"/>
+            <line x1="0" y1="120" x2="130" y2="120" stroke="#C9A24A" stroke-width="0.5"/>
+            <line x1="0" y1="160" x2="130" y2="160" stroke="#C9A24A" stroke-width="0.5"/>
+            <circle cx="16" cy="20" r="2" fill="#C9A24A"/>
+            <circle cx="49" cy="60" r="2" fill="#C9A24A" opacity="0.7"/>
+            <circle cx="82" cy="20" r="2" fill="#C9A24A"/>
+            <circle cx="115" cy="100" r="2" fill="#C9A24A" opacity="0.6"/>
+            <circle cx="16" cy="140" r="2" fill="#C9A24A" opacity="0.8"/>
+            <circle cx="82" cy="100" r="2" fill="#C9A24A"/>
+            <circle cx="115" cy="180" r="2" fill="#C9A24A" opacity="0.7"/>
+            <circle cx="49" cy="180" r="2" fill="#C9A24A" opacity="0.55"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="team-header">
+      <div>
+        <div class="section-eyebrow">Team</div>
+        <h2>Institutional pedigree. Regional depth.</h2>
+      </div>
+      <div class="lede">
+        Our advisory bench draws from Blackstone, China Resources Capital, and the Hong Kong Exchange - paired with general partners with deep operational track records in Sarawak's infrastructure and capital markets.
+      </div>
+    </div>
+
+    <div class="team-tier">
+      <div class="tier-label">
+        <h3>Senior Advisors</h3>
+        <span class="count">2 members</span>
+      </div>
+      <div class="team-grid advisors">
+        <div class="person">
+          <!-- TEAM PHOTO - Derek Cheng. To add real photo, replace the line below with: <div class="person-photo"><img src="images/team-derek.jpg" alt="Derek Cheng" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:2;"></div> -->
+          <div class="person-photo"><span class="person-initials">DC</span></div>
+          <div class="person-info">
+            <h4>Derek Cheng</h4>
+            <div class="role">Senior Advisor</div>
+          </div>
+        </div>
+        <div class="person">
+          <!-- TEAM PHOTO - Lewis Wan. To add real photo, replace the line below with: <div class="person-photo"><img src="images/team-lewis.jpg" alt="Lewis Wan" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:2;"></div> -->
+          <div class="person-photo"><span class="person-initials">LW</span></div>
+          <div class="person-info">
+            <h4>Lewis Wan</h4>
+            <div class="role">Senior Advisor</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-tier">
+      <div class="tier-label">
+        <h3>General Partners</h3>
+        <span class="count">4 members</span>
+      </div>
+      <div class="team-grid partners">
+        <div class="person">
+          <!-- TEAM PHOTO - Addy Ng. To add real photo, replace the line below with: <div class="person-photo"><img src="images/team-addy.jpg" alt="Addy Ng" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:2;"></div> -->
+          <div class="person-photo"><span class="person-initials">AN</span></div>
+          <div class="person-info">
+            <h4>Addy Ng</h4>
+            <div class="role">General Partner</div>
+          </div>
+        </div>
+        <div class="person">
+          <!-- TEAM PHOTO - Leong Hon Chan. To add real photo, replace the line below with: <div class="person-photo"><img src="images/team-leong.jpg" alt="Leong Hon Chan" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:2;"></div> -->
+          <div class="person-photo"><span class="person-initials">LH</span></div>
+          <div class="person-info">
+            <h4>Leong Hon Chan</h4>
+            <div class="role">General Partner</div>
+          </div>
+        </div>
+        <div class="person">
+          <!-- TEAM PHOTO - Alvin Tan. To add real photo, replace the line below with: <div class="person-photo"><img src="images/team-alvin.jpg" alt="Alvin Tan" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:2;"></div> -->
+          <div class="person-photo"><span class="person-initials">AT</span></div>
+          <div class="person-info">
+            <h4>Alvin Tan</h4>
+            <div class="role">General Partner</div>
+          </div>
+        </div>
+        <div class="person">
+          <!-- TEAM PHOTO - Dato' Ismail. To add real photo, replace the line below with: <div class="person-photo"><img src="images/team-ismail.jpg" alt="Dato Ismail" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:2;"></div> -->
+          <div class="person-photo"><span class="person-initials">DI</span></div>
+          <div class="person-info">
+            <h4>Dato' Ismail</h4>
+            <div class="role">General Partner</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section class="insights" id="insights">
+  <div class="container">
+    <div class="insights-header">
+      <h2>Insights &amp; News</h2>
+      <a href="#" class="view-all">View All →</a>
+    </div>
+    <div class="insights-grid">
+      <article class="insight-card">
+        <div class="insight-image">
+          <!-- INSIGHT IMAGE 01 (Press Release) - swap SVG below with: <img src="images/news-press-release.jpg" alt="Press Release" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"> -->
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0; width:100%; height:100%;" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="i1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1a4a3d"/>
+                <stop offset="100%" stop-color="#051612"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="250" fill="url(#i1)"/>
+            <g transform="translate(150, 60)" opacity="0.5">
+              <rect x="0" y="0" width="100" height="130" fill="none" stroke="#C9A24A" stroke-width="1.2"/>
+              <line x1="15" y1="25" x2="85" y2="25" stroke="#C9A24A" stroke-width="0.8"/>
+              <line x1="15" y1="40" x2="85" y2="40" stroke="#C9A24A" stroke-width="0.8"/>
+              <line x1="15" y1="55" x2="65" y2="55" stroke="#C9A24A" stroke-width="0.8"/>
+              <line x1="15" y1="80" x2="85" y2="80" stroke="#C9A24A" stroke-width="0.6" opacity="0.6"/>
+              <line x1="15" y1="92" x2="75" y2="92" stroke="#C9A24A" stroke-width="0.6" opacity="0.6"/>
+              <line x1="15" y1="104" x2="55" y2="104" stroke="#C9A24A" stroke-width="0.6" opacity="0.6"/>
+            </g>
+          </svg>
+        </div>
+        <div class="insight-meta">
+          <span class="tag">Press Release</span>
+          <span class="dot"></span>
+          <span>Nov 2025</span>
+        </div>
+        <h3>Borneo Development Capital announces Sarawak-focused infrastructure fund.</h3>
+        <p>BDC PLT incorporated in Kuala Lumpur to deploy capital into Sarawak's infrastructure and digital economy.</p>
+      </article>
+
+      <a href="thesis.html" class="insight-card" style="text-decoration:none; color:inherit;">
+        <div class="insight-image">
+          <!-- INSIGHT IMAGE 02 (Thesis) - swap SVG below with: <img src="images/news-thesis.jpg" alt="Thesis article" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"> -->
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0; width:100%; height:100%;" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="i2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#14443a"/>
+                <stop offset="100%" stop-color="#020806"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="250" fill="url(#i2)"/>
+            <g opacity="0.55">
+              <path d="M40,125 Q90,90 140,125 T240,125 T340,125" stroke="#C9A24A" stroke-width="1.5" fill="none"/>
+              <path d="M40,150 Q90,120 140,150 T240,150 T340,150" stroke="#C9A24A" stroke-width="1" fill="none" opacity="0.6"/>
+            </g>
+            <g opacity="0.5" transform="translate(280, 90)">
+              <rect x="0" y="0" width="80" height="100" fill="none" stroke="#C9A24A" stroke-width="0.8"/>
+              <line x1="0" y1="25" x2="80" y2="25" stroke="#C9A24A" stroke-width="0.4"/>
+              <line x1="0" y1="50" x2="80" y2="50" stroke="#C9A24A" stroke-width="0.4"/>
+              <line x1="0" y1="75" x2="80" y2="75" stroke="#C9A24A" stroke-width="0.4"/>
+              <circle cx="10" cy="12" r="1.5" fill="#C9A24A"/>
+              <circle cx="10" cy="37" r="1.5" fill="#C9A24A" opacity="0.6"/>
+              <circle cx="10" cy="62" r="1.5" fill="#C9A24A" opacity="0.7"/>
+              <circle cx="10" cy="87" r="1.5" fill="#C9A24A"/>
+            </g>
+          </svg>
+        </div>
+        <div class="insight-meta">
+          <span class="tag">Thesis</span>
+          <span class="dot"></span>
+          <span>Oct 2025</span>
+        </div>
+        <h3>From Watt to Byte: clean energy as the foundation of digital infrastructure.</h3>
+        <p>The structural case for why hydropower and stable governance position Sarawak for the next generation of data centres.</p>
+      </a>
+
+      <article class="insight-card">
+        <div class="insight-image">
+          <!-- INSIGHT IMAGE 03 (Market View) - swap SVG below with: <img src="images/news-market-view.jpg" alt="Market view" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"> -->
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0; width:100%; height:100%;" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="i3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0E3A2F"/>
+                <stop offset="100%" stop-color="#051612"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="250" fill="url(#i3)"/>
+            <g opacity="0.5" transform="translate(80, 80)">
+              <rect x="0" y="20" width="240" height="80" fill="none" stroke="#C9A24A" stroke-width="1"/>
+              <rect x="0" y="0" width="240" height="20" fill="#C9A24A" opacity="0.3"/>
+              <line x1="60" y1="20" x2="60" y2="100" stroke="#C9A24A" stroke-width="0.8"/>
+              <line x1="120" y1="20" x2="120" y2="100" stroke="#C9A24A" stroke-width="0.8"/>
+              <line x1="180" y1="20" x2="180" y2="100" stroke="#C9A24A" stroke-width="0.8"/>
+              <text x="120" y="65" font-family="'DM Sans', sans-serif" font-size="14" fill="#C9A24A" text-anchor="middle" opacity="0.7" font-weight="600">2030</text>
+            </g>
+          </svg>
+        </div>
+        <div class="insight-meta">
+          <span class="tag">Market View</span>
+          <span class="dot"></span>
+          <span>Sep 2025</span>
+        </div>
+        <h3>Reading SDS 2030: investor implications of Sarawak's development blueprint.</h3>
+        <p>Translating policy targets into investable themes across the Sarawak Development Strategy 2030 framework.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CAREERS -->
+<section class="careers" id="careers">
+  <div class="container">
+    <div class="careers-header">
+      <div>
+        <div class="section-eyebrow">Careers</div>
+        <h2>Join the team building Sarawak's next decade.</h2>
+      </div>
+      <div class="lede">
+        We are currently hiring across investment, deal origination, and partner relations. BDC offers the rare combination of institutional discipline and direct involvement in one of Southeast Asia's most consequential development stories.
+      </div>
+    </div>
+
+    <div class="careers-grid">
+      <div class="career-card">
+        <div class="role-id">01 - Operations</div>
+        <h3>Project Manager</h3>
+        <p>Manage invested projects, execute fund direction, and facilitate project operations and timelines across BDC's portfolio. Work directly with portfolio company management to deliver on investment theses.</p>
+        <a href="mailto:contact@borneodevcapital.com?subject=Application:%20Project%20Manager" class="apply">Apply for this role <span>&rarr;</span></a>
+      </div>
+      <div class="career-card">
+        <div class="role-id">02 - Deal Origination</div>
+        <h3>M&amp;A Negotiator</h3>
+        <p>Hunt profitable businesses for mergers and acquisitions. Negotiate directly with company founders and management, structure transactions, and steward deals from initial outreach to closing.</p>
+        <a href="mailto:contact@borneodevcapital.com?subject=Application:%20M%26A%20Negotiator" class="apply">Apply for this role <span>&rarr;</span></a>
+      </div>
+      <div class="career-card">
+        <div class="role-id">03 - Partner Relations</div>
+        <h3>Investor Relations</h3>
+        <p>Liaise with Limited Partners and maintain long-term relationships with the firm's investor base. Coordinate reporting, communications, and capital calls across the fund's investor community.</p>
+        <a href="mailto:contact@borneodevcapital.com?subject=Application:%20Investor%20Relations" class="apply">Apply for this role <span>&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="careers-footer">
+      <p>
+        <strong>Don't see your role?</strong> We welcome enquiries from exceptional candidates across investment, legal, finance, and operations who share our conviction in Sarawak's development decade.
+      </p>
+      <div class="contact">
+        Send your CV to <a href="mailto:contact@borneodevcapital.com?subject=Career%20Enquiry">contact@borneodevcapital.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-header">
+      <div>
+        <div class="section-eyebrow">Contact</div>
+        <h2>Speak with our team.</h2>
+      </div>
+      <div class="lede">
+        For investor inquiries, deal-flow discussions, career applications, or general questions, please reach us directly. We aim to respond to all enquiries within two business days.
+      </div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-info-block">
+          <div class="label">General Enquiries</div>
+          <div class="value">
+            <a href="mailto:contact@borneodevcapital.com">contact@borneodevcapital.com</a>
+          </div>
+          <div class="sub">For investor relations, deal-flow, careers, and media enquiries.</div>
+        </div>
+        <div class="contact-info-block">
+          <div class="label">Office Hours</div>
+          <div class="value">Monday to Friday</div>
+          <div class="sub">9:00am to 6:00pm (GMT+8, Malaysia time)</div>
+        </div>
+        <div class="contact-info-block">
+          <div class="label">Office</div>
+          <div class="value address">
+            A-15-1 &amp; A-15-2, Tower A,<br>
+            Northpoint Office, Mid Valley City,<br>
+            No. 1 Medan Syed Putra Utara,<br>
+            59200 Kuala Lumpur, Malaysia
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Northpoint+Office+Mid+Valley+City+Kuala+Lumpur" target="_blank" rel="noopener" class="maps-link">
+            View on Google Maps <span>&rarr;</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-map">
+        <iframe
+          src="https://www.google.com/maps?q=Northpoint+Office+Tower+A+Mid+Valley+City+Kuala+Lumpur&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-grid">
+      <h2>Speak with our team about Sarawak's next decade.</h2>
+      <div class="cta-actions">
+        <a href="mailto:contact@borneodevcapital.com?subject=Investor%20Inquiry" class="btn primary">Investor Inquiries</a>
+        <a href="#contact" class="btn">General Contact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="mark">BDC</span>
+        <span class="word">Borneo Development Capital</span>
+        <p>A Sarawak-focused private equity firm investing in the infrastructure of Borneo's next decade.</p>
+        <div class="reg">Registration: 202504003274 (LLP0044794-LGN)</div>
+      </div>
+      <div>
+        <h5>Firm</h5>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#sectors">Sectors</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#insights">Insights &amp; News</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Office</h5>
+        <address>
+          A-15-1 &amp; A-15-2, Tower A,<br>
+          Northpoint Office, Mid Valley City,<br>
+          No. 1 Medan Syed Putra Utara,<br>
+          59200 Kuala Lumpur, Malaysia
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Borneo Development Capital PLT. All rights reserved.</div>
+      <div class="footer-bottom-links">
+        <a href="#">Legal</a>
+        <a href="#">Privacy</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+    <div style="padding-top: 1.25rem; font-size: 11px; color: rgba(255,255,255,0.3); text-align: center;">
+      Hero photograph by <a href="https://unsplash.com/@gemlyn" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.5);">Gem Lyn</a> on Unsplash
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+</script>
+
+</body>
+</html>
