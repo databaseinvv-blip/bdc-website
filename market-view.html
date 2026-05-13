@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading SDS 2030 - Borneo Development Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #0E3A2F; --green-deep: #082420; --green-darker: #051612;
+    --gold: #B08A3D; --gold-bright: #C9A24A;
+    --white: #FFFFFF; --off-white: #FAFAF8;
+    --gray-50: #F5F5F2; --gray-100: #EDEDE8; --gray-200: #DCDCD5;
+    --gray-300: #B8B8B0; --gray-500: #6E6E66; --gray-700: #3A3A35;
+    --black: #0A0A08;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--black); background: var(--white); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; letter-spacing: -0.005em; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 500; letter-spacing: -0.02em; color: var(--black); line-height: 1.1; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 2.5rem; }
+  .container-narrow { max-width: 760px; margin: 0 auto; padding: 0 2.5rem; }
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem 2.5rem; display: flex; align-items: center; justify-content: space-between; background: rgba(8, 36, 32, 0.96); backdrop-filter: blur(12px); }
+  .nav-logo { display: flex; align-items: center; gap: 0.75rem; color: var(--white); }
+  .nav-logo .mark { font-size: 22px; font-weight: 700; color: var(--gold-bright); letter-spacing: 0.02em; }
+  .nav-logo .word { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255, 255, 255, 0.85); font-weight: 500; }
+  .nav-menu { display: flex; gap: 2.25rem; list-style: none; align-items: center; }
+  .nav-menu a { color: rgba(255, 255, 255, 0.85); font-size: 14px; font-weight: 500; }
+  .nav-menu a:hover { color: var(--gold-bright); }
+  .nav-cta { color: var(--white); font-size: 13px; font-weight: 600; padding: 0.625rem 1.25rem; background: rgba(201, 162, 74, 0.15); border: 1px solid rgba(201, 162, 74, 0.4); }
+  .nav-cta:hover { background: var(--gold-bright); color: var(--green-deep); }
+  .article-header { padding: 10rem 0 5rem; background: var(--green-deep); color: var(--white); position: relative; overflow: hidden; border-bottom: 1px solid rgba(201, 162, 74, 0.15); }
+  .article-header-bg { position: absolute; inset: 0; z-index: 0; }
+  .article-header-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.45; }
+  .article-header::before { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgba(8, 36, 32, 0.55) 0%, rgba(5, 22, 18, 0.85) 100%), radial-gradient(ellipse 60% 50% at 75% 20%, rgba(201, 162, 74, 0.1) 0%, transparent 60%); }
+  .article-header-content { position: relative; z-index: 1; }
+  .breadcrumb { display: flex; align-items: center; gap: 0.75rem; font-size: 13px; color: rgba(255, 255, 255, 0.6); margin-bottom: 3rem; font-weight: 500; }
+  .breadcrumb a { color: var(--gold-bright); }
+  .breadcrumb a:hover { color: var(--white); }
+  .breadcrumb .sep { opacity: 0.4; }
+  .article-meta-top { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; }
+  .article-meta-top .tag { color: var(--gold-bright); padding: 0.375rem 0.875rem; border: 1px solid rgba(201, 162, 74, 0.4); background: rgba(201, 162, 74, 0.08); }
+  .article-meta-top .date, .article-meta-top .read-time { color: rgba(255, 255, 255, 0.6); }
+  .article-meta-top .dot { width: 3px; height: 3px; background: var(--gold); border-radius: 50%; }
+  .article-header h1 { font-size: clamp(2.5rem, 5vw, 4.25rem); line-height: 1.05; color: var(--white); margin-bottom: 1.75rem; font-weight: 500; letter-spacing: -0.03em; max-width: 22ch; }
+  .article-header .deck { font-size: clamp(1.125rem, 1.5vw, 1.375rem); color: rgba(255, 255, 255, 0.75); line-height: 1.55; max-width: 55ch; margin-bottom: 2.5rem; font-weight: 400; }
+  .article-author { padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.15); display: flex; align-items: center; gap: 1rem; font-size: 13px; color: rgba(255, 255, 255, 0.7); flex-wrap: wrap; }
+  .article-author strong { color: var(--white); font-weight: 600; }
+  .article-author .sep { opacity: 0.4; }
+  .article-body { padding: 5rem 0; background: var(--white); }
+  .article-body h2 { font-size: clamp(1.75rem, 2.5vw, 2.25rem); margin: 4rem 0 1.5rem; line-height: 1.15; font-weight: 500; letter-spacing: -0.02em; }
+  .article-body h2:first-of-type { margin-top: 0; }
+  .article-body h3 { font-size: 1.25rem; margin: 2.5rem 0 1rem; font-weight: 600; line-height: 1.3; }
+  .article-body p { font-size: 18px; line-height: 1.7; color: var(--gray-700); margin-bottom: 1.5rem; }
+  .article-body p.lede { font-size: 22px; line-height: 1.55; color: var(--black); font-weight: 500; margin-bottom: 2.5rem; letter-spacing: -0.015em; }
+  .article-body strong { color: var(--black); font-weight: 600; }
+  .article-body ul { margin: 0 0 1.5rem 0; padding: 0; }
+  .article-body ul li { font-size: 18px; line-height: 1.7; color: var(--gray-700); margin-bottom: 0.75rem; list-style: none; position: relative; padding-left: 1.5rem; }
+  .article-body ul li::before { content: ''; position: absolute; left: 0; top: 0.7em; width: 6px; height: 6px; background: var(--gold); }
+  .pullquote { margin: 4rem 0; padding: 3rem 0; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); text-align: center; }
+  .pullquote-text { font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1.35; color: var(--black); font-weight: 500; letter-spacing: -0.02em; max-width: 24ch; margin: 0 auto 1.5rem; }
+  .pullquote-text .accent { color: var(--gold); }
+  .pullquote-attr { font-size: 12px; letter-spacing: 0.1em; color: var(--gray-500); font-weight: 600; text-transform: uppercase; }
+  .article-stats { background: var(--off-white); border: 1px solid var(--gray-100); padding: 2.5rem; margin: 3rem 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .article-stat .num { font-size: clamp(2rem, 3.5vw, 2.5rem); font-weight: 500; color: var(--green); line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.03em; }
+  .article-stat .label { font-size: 13px; color: var(--gray-700); line-height: 1.4; font-weight: 500; }
+  .pillar { background: var(--off-white); border-left: 4px solid var(--gold); padding: 1.75rem 2rem; margin: 1.5rem 0; }
+  .pillar h3 { font-size: 18px; color: var(--black); margin: 0 0 0.5rem; font-weight: 600; }
+  .pillar .label { font-size: 11px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; margin-bottom: 0.875rem; }
+  .pillar p { font-size: 15px; line-height: 1.65; color: var(--gray-700); margin-bottom: 0; }
+  .disclaimer { margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid var(--gray-200); font-size: 13px; color: var(--gray-500); line-height: 1.6; font-style: italic; }
+  .related { background: var(--off-white); padding: 5rem 0; border-top: 1px solid var(--gray-100); }
+  .related-header { margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--gray-200); display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 1.5rem; }
+  .related-header h2 { font-size: clamp(1.75rem, 2.5vw, 2.25rem); font-weight: 500; }
+  .related-link { font-size: 13px; font-weight: 600; padding: 0.875rem 1.5rem; border: 1px solid var(--black); }
+  .related-link:hover { background: var(--black); color: var(--white); }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .related-card { background: var(--white); border: 1px solid var(--gray-100); padding: 2rem; transition: all 0.3s; cursor: pointer; }
+  .related-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .related-card .meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-size: 12px; color: var(--gray-500); font-weight: 500; }
+  .related-card .meta .tag { color: var(--gold); font-weight: 600; }
+  .related-card h3 { font-size: 18px; line-height: 1.3; font-weight: 600; margin-bottom: 0.75rem; }
+  .related-card p { font-size: 14px; color: var(--gray-700); line-height: 1.55; }
+  .footer { background: var(--green-darker); color: rgba(255, 255, 255, 0.6); padding: 5rem 0 2rem; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .footer-brand .mark { font-size: 26px; font-weight: 700; color: var(--gold-bright); margin-bottom: 0.5rem; display: block; }
+  .footer-brand .word { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem; display: block; font-weight: 500; }
+  .footer-brand p { font-size: 14px; line-height: 1.65; margin-bottom: 1rem; max-width: 36ch; }
+  .footer-brand .reg { font-size: 12px; color: rgba(255, 255, 255, 0.4); }
+  .footer h5 { font-size: 12px; color: var(--gold-bright); margin-bottom: 1.5rem; font-weight: 600; }
+  .footer ul { list-style: none; }
+  .footer li { padding: 0.4rem 0; font-size: 14px; }
+  .footer a { color: rgba(255, 255, 255, 0.6); }
+  .footer a:hover { color: var(--gold-bright); }
+  .footer address { font-style: normal; font-size: 14px; line-height: 1.65; }
+  .footer-bottom { padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 12px; color: rgba(255, 255, 255, 0.4); }
+  .footer-bottom-links { display: flex; gap: 1.75rem; }
+  @media (max-width: 1024px) {
+    .nav { padding: 1rem 1.5rem; }
+    .nav-menu, .nav-logo .word { display: none; }
+    .container, .container-narrow { padding: 0 1.5rem; }
+    .article-header { padding: 8rem 0 4rem; }
+    .article-body { padding: 4rem 0; }
+    .article-stats { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem; }
+    .related-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; }
+    .article-body p, .article-body ul li { font-size: 16px; }
+    .article-body p.lede { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="mark">BDC</span>
+    <span class="word">Borneo Development Capital</span>
+  </a>
+  <ul class="nav-menu">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#approach">Approach</a></li>
+    <li><a href="index.html#sectors">Sectors</a></li>
+    <li><a href="index.html#portfolio">Portfolio</a></li>
+    <li><a href="index.html#team">Team</a></li>
+    <li><a href="index.html#insights">Insights</a></li>
+    <li><a href="index.html#careers">Careers</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Contact</a>
+</nav>
+
+<header class="article-header">
+  <div class="article-header-bg">
+    <img src="images/sector-infrastructure.jpg" alt="">
+  </div>
+  <div class="container-narrow">
+    <div class="article-header-content">
+      <div class="breadcrumb">
+        <a href="index.html">BDC</a>
+        <span class="sep">/</span>
+        <a href="index.html#insights">Insights &amp; News</a>
+        <span class="sep">/</span>
+        <span>Market View</span>
+      </div>
+      <div class="article-meta-top">
+        <span class="tag">Market View</span>
+        <span class="dot"></span>
+        <span class="date">September 2025</span>
+        <span class="dot"></span>
+        <span class="read-time">6 min read</span>
+      </div>
+      <h1>Reading SDS 2030: investor implications of Sarawak's development blueprint.</h1>
+      <p class="deck">Translating Sarawak's published policy targets into investable themes for the decade ahead. A market view on what a state-level development strategy actually means for capital deployment.</p>
+      <div class="article-author">
+        <strong>Borneo Development Capital</strong>
+        <span class="sep">/</span>
+        <span>Market commentary</span>
+        <span class="sep">/</span>
+        <span>Filed under: Strategy, Sarawak</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article class="article-body">
+  <div class="container-narrow">
+
+    <p class="lede">Every development decade has its blueprint. For Sarawak, that blueprint is the Sarawak Development Strategy 2030. For investors, the question is what to do with it.</p>
+
+    <p>Policy documents have a peculiar quality. They are simultaneously authoritative and aspirational, specific and abstract. They state targets without guaranteeing outcomes, and they reflect political will without committing capital. For an investor, the temptation is to read them as marketing material and discount accordingly. We think this is a mistake. Used carefully, a published development strategy is one of the most useful inputs an investor in an emerging-state market can have.</p>
+
+    <p>The Sarawak Development Strategy 2030, or SDS 2030, is the state government's articulated framework for the next decade of economic development. It is publicly available, regularly referenced in policy speeches, and increasingly cited in the budget and infrastructure spending decisions of the state and its government-linked companies. We treat it as a directional document, not a forecast. What follows is how we read it.</p>
+
+    <h2>The headline numbers</h2>
+
+    <p>The framework targets a near-doubling of state GDP from approximately RM150 billion to RM282 billion by 2030, with an implied compound annual growth rate of roughly 8 percent. That growth is not expected to be evenly distributed. The strategy explicitly prioritises a handful of sectors, anchored by the state's structural advantages in renewable energy, land, and policy stability.</p>
+
+    <div class="article-stats">
+      <div class="article-stat">
+        <div class="num">RM282B</div>
+        <div class="label">State GDP target by 2030</div>
+      </div>
+      <div class="article-stat">
+        <div class="num">~8%</div>
+        <div class="label">Targeted compound annual growth</div>
+      </div>
+      <div class="article-stat">
+        <div class="num">2030</div>
+        <div class="label">Horizon for the development cycle</div>
+      </div>
+    </div>
+
+    <p>These targets are the state's, not ours. We cite them as published claims. The question for an investor is not whether they will be met precisely, but whether the policy commitment behind them is real enough to shape where public infrastructure capital flows over the next decade. On that question, the evidence so far is unambiguous: yes.</p>
+
+    <h2>The pillars and what they imply</h2>
+
+    <p>SDS 2030 organises Sarawak's development priorities into a set of interlocking themes. Rather than reproduce the framework in full, we focus on the four themes where we believe private capital can most meaningfully participate.</p>
+
+    <div class="pillar">
+      <div class="label">Pillar I</div>
+      <h3>Renewable energy as a structural anchor</h3>
+      <p>Sarawak's hydropower base, combined with expanding solar and energy storage capacity, positions the state as a regional leader in clean electricity. The implication for investors is durable, contractual cashflows from generation and transmission assets, alongside the longer-horizon value of land and water rights that anchor future capacity.</p>
+    </div>
+
+    <div class="pillar">
+      <div class="label">Pillar II</div>
+      <h3>Digital infrastructure as the next layer</h3>
+      <p>The state has publicly positioned itself as a destination for data-centre development, smart-city systems, and connectivity infrastructure. The cost and carbon profile of Sarawak's power make this economically rational, not merely aspirational. For investors, this opens exposure to platforms that benefit from the energy advantage downstream.</p>
+    </div>
+
+    <div class="pillar">
+      <div class="label">Pillar III</div>
+      <h3>Physical infrastructure to absorb growth</h3>
+      <p>Roads, bridges, water, and the built environment that supports industrial and demographic expansion remain the foundation. SDS 2030 commits significant public expenditure to these areas, creating opportunities for co-investment alongside state and GLC counterparties on long-tenured, contractually-protected projects.</p>
+    </div>
+
+    <div class="pillar">
+      <div class="label">Pillar IV</div>
+      <h3>Public-market participation in Malaysian growth</h3>
+      <p>The Malaysian capital markets, particularly Bursa Malaysia, provide a parallel channel through which Sarawak-aligned growth can be accessed. Listed exposure, including structured IPO and pre-IPO situations, allows participation in the broader Malaysian growth story without the duration constraints of pure infrastructure positions.</p>
+    </div>
+
+    <div class="pullquote">
+      <p class="pullquote-text">The opportunity is not the policy. The opportunity is the <span class="accent">capital flows</span> that the policy makes credible.</p>
+      <div class="pullquote-attr">BDC market view</div>
+    </div>
+
+    <h2>What this means for portfolio construction</h2>
+
+    <p>A development strategy of this kind has three implications for how an investor should think about portfolio construction in the state.</p>
+
+    <h3>First, the strategy supports a multi-strategy approach, not a single-bet approach.</h3>
+
+    <p>The pillars are not independent. Energy enables digital. Infrastructure enables both. Public markets provide liquidity and risk balance against private positions. A portfolio that captures only one pillar misses the layering effect that makes the overall thesis compounding rather than thematic. Our own structure reflects this: defensive yield as the anchor, structured equity as the balance, growth as the upside.</p>
+
+    <h3>Second, the strategy rewards local relationships more than sector expertise.</h3>
+
+    <p>In a state-led development model, the counterparties that matter are state agencies, government-linked companies, project sponsors, and a relatively small number of operating businesses with the licences, land rights, and contracts to execute. Capital approaching this market through a pure sector lens, without these relationships, faces meaningful sourcing and execution disadvantages. Place-based capital, by contrast, builds these relationships as a primary competitive advantage.</p>
+
+    <h3>Third, the time horizon is the strategy.</h3>
+
+    <p>SDS 2030 is a ten-year framework. The infrastructure it underwrites produces returns over fifteen-to-twenty year horizons. Capital structured for short-tenure exits cannot meaningfully participate. The right horizon for this opportunity is the development cycle itself, with funds structured accordingly. Quarterly capital looking for quarterly outcomes will neither source the best deals nor hold them long enough to compound.</p>
+
+    <h2>Where the framework can disappoint</h2>
+
+    <p>It is worth being honest about the limits of policy documents.</p>
+
+    <p>SDS 2030 is a directional commitment, not a guarantee. Political continuity matters. Execution capacity matters. The pace at which public infrastructure capital actually moves through procurement, awards, and construction can be slower than headline projections suggest. Investors should price these risks rather than assume away.</p>
+
+    <p>That said, the alternative is not investing without a framework. The alternative is investing without knowing where state capital is heading. For an investor focused on a specific jurisdiction, having a published, politically-supported, capital-backed roadmap is a meaningful information advantage. The framework does not deliver the returns. It tells you where to look for them.</p>
+
+    <h2>Our reading</h2>
+
+    <p>SDS 2030 is not a marketing document, and it is not a fund prospectus. It is a state's articulated bet on its own future. For investors patient enough to participate over the cycle, and disciplined enough to underwrite each project on its own terms rather than relying on the framework's headline numbers, it is one of the more useful inputs available in Southeast Asia today.</p>
+
+    <p>The investable opportunity is not the policy itself. It is the alignment of public capital, private operating capacity, and structural advantage that the policy makes credible. We will continue to update our reading of the framework as it evolves through the decade.</p>
+
+    <div class="disclaimer">
+      This article reflects the views of Borneo Development Capital as of the date of publication. It is intended for informational purposes only and does not constitute investment advice, an offer to sell securities, or a solicitation of an offer to buy securities. References to the Sarawak Development Strategy 2030 are drawn from publicly available state government materials and do not represent forecasts, endorsements, or commitments by the firm. Investment in funds managed by Borneo Development Capital is open only to Sophisticated Investors as defined under Malaysian securities law. Past performance is not indicative of future results. Prospective investors should review the relevant Information Memorandum and consult their own legal, tax, and financial advisors before making any investment decision.
+    </div>
+
+  </div>
+</article>
+
+<section class="related">
+  <div class="container-narrow">
+    <div class="related-header">
+      <h2>Continue reading</h2>
+      <a href="index.html#insights" class="related-link">All Insights</a>
+    </div>
+    <div class="related-grid">
+      <a href="thesis.html" class="related-card">
+        <div class="meta">
+          <span class="tag">Thesis</span>
+          <span>Nov 2025</span>
+        </div>
+        <h3>From Watt to Byte: clean energy as the foundation of digital infrastructure.</h3>
+        <p>The structural case for why hydropower and stable governance position Sarawak for the next generation of data centres.</p>
+      </a>
+      <a href="press-release.html" class="related-card">
+        <div class="meta">
+          <span class="tag">Press Release</span>
+          <span>Nov 2025</span>
+        </div>
+        <h3>Borneo Development Capital announces Sarawak-focused infrastructure fund.</h3>
+        <p>BDC PLT incorporated in Kuala Lumpur to deploy capital into Sarawak's infrastructure and digital economy.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="mark">BDC</span>
+        <span class="word">Borneo Development Capital</span>
+        <p>A Sarawak-focused private equity firm investing in the infrastructure of Borneo's next decade.</p>
+        <div class="reg">Registration: 202504003274 (LLP0044794-LGN)</div>
+      </div>
+      <div>
+        <h5>Firm</h5>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#approach">Approach</a></li>
+          <li><a href="index.html#sectors">Sectors</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#team">Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="index.html#insights">Insights &amp; News</a></li>
+          <li><a href="index.html#careers">Careers</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Office</h5>
+        <address>
+          A-15-1 &amp; A-15-2, Tower A,<br>
+          Northpoint Office, Mid Valley City,<br>
+          No. 1 Medan Syed Putra Utara,<br>
+          59200 Kuala Lumpur, Malaysia
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Borneo Development Capital PLT. All rights reserved.</div>
+      <div class="footer-bottom-links">
+        <a href="#">Legal</a>
+        <a href="#">Privacy</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
